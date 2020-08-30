@@ -15,13 +15,13 @@ def add(x, y):
 
 class HelloWorld(Resource):
     def get(self):
-        add.delay(2, 3)          # 1) first function
+        add.delay(2, 3)           # 1) first function
         # hello.delay()           # 2) second function
         # r = hello.delay()       # 3) third function  for this function to execute first start celery worker, otherwise flask_app url loding and loding.......
         # return r.get()          # 3) third function
         return "Hello World"
-        # return add.delay(2, 3)  # 4) Fourth Function ## do not do this, otherwise you face error like:- TypeError: Object of type AsyncResult is not JSON serializable
-        # return hello()          # 5) Fifth Function  ## do not do this, otherwise you face error like:- TypeError: Object of type AsyncResult is not JSON serializable
+        # return add.delay(2, 3)  # 4) Fourth Function ## do not return function, only call function like (1) first function, otherwise you face error like:- TypeError: Object of type AsyncResult is not JSON serializable
+        # return hello()          # 5) Fifth Function  ## do not return function, only call function like (2)and(3) second and third function, otherwise you face error like:- TypeError: Object of type AsyncResult is not JSON serializable
 
 
 
