@@ -60,3 +60,28 @@ For more:-
     https://www.youtube.com/watch?v=THxCy-6EnQM
     https://www.youtube.com/watch?v=etfECjhaP-g&list=PLXmMXHVSvS-CoYS177-UvMAQYRfL3fBtX&index=33
     https://www.youtube.com/watch?v=jsoC01eMHQA
+
+
+##########################################################################################################################
+##########################################################################################################################
+#               THIS MEANS,THE NAME WE ASSIGN TO CELERY,
+#               THAT SAME NAME IS USED TO START CELERY WORKER
+#               LIKE:-
+#                       celery -A YourFileName.SameName worker --loglevel=info
+#
+#               YourFileName = name of that file in which your celery app is running
+#               SameName  =  THE NAME WE ASSIGN TO CELERY
+#
+# For example in main.py file:-
+#      1)       app = Celery('main', broker='amqp://guest:@localhost:5672//', backend='db+sqlite:///db.sqlite3')
+#                       Then to start celery worker:-
+#                               celery -A main.app worker --loglevel=info
+#                                       OR
+#                               celery -A main worker --loglevel=info
+#      2)        celery = Celery('main', broker='amqp://guest:@localhost:5672//', backend='db+sqlite:///db.sqlite3')
+#                       Then to start celery worker:-
+#                               celery -A main.celery worker --loglevel=info
+#                                       AND NOT use below command
+#                               celery -A main worker --loglevel=info      ### do not use this command due to some reason
+##########################################################################################################################
+##########################################################################################################################
